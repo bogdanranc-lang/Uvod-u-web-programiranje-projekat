@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Pricing - Aura Marketing</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="nav-bar">
+        <header>
+            <img src="slike/logo.png" alt="Aura marketing logo" id="logo">
+        </header>
+        <nav>
+            <ul id="nav-list" type="none">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services & Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" id="cart-nav-link"> 🛒 Cart (<span id="cart-counter">0</span>)</a>
+    </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="hero fade-in-element">
+        <h1> Our <span>Services</span> & Plans </h1>
+        <h1> Transparent Pricing for Growth </h1>
+    </div>
+
+    <main>
+        <div class="pricing-container fade-in-element">
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h3>Starter</h3>
+                    <div class="price">$499<span>/mo</span></div>
+                    <p>Perfect for small businesses looking to establish their online presence.</p>
+                </div>
+                <div class="card-features">
+                    <ul type="none">
+                        <li>✓ Social Media Management (2 platforms)</li>
+                        <li>✓ 8 Custom Graphic Designs /mo</li>
+                        <li>✓ Basic Target Audience Research</li>
+                        <li>✓ Monthly Performance Report</li>
+                        <li class="not-included">✗ Advanced Data Analytics</li>
+                        <li class="not-included">✗ Dedicated Account Manager</li>
+                    </ul>
+                </div>
+                <div class="card-footer-btn">
+                    <a href="#" class="cta-btn pricing-action-btn" data-plan="Starter">Get Started</a>
+                </div>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="badge">Most Popular</div>
+                <div class="card-header">
+                    <h3>Pro Growth</h3>
+                    <div class="price">$1,199<span>/mo</span></div>
+                    <p>Designed for businesses looking to scale rapidly and drive real conversions.</p>
+                </div>
+                <div class="card-features">
+                    <ul type="none">
+                        <li>✓ Social Media Management (4 platforms)</li>
+                        <li>✓ 15 Custom Graphic Designs /mo</li>
+                        <li>✓ Deep Consumer Psychology Targeting</li>
+                        <li>✓ Advanced Data Analytics & Tracking</li>
+                        <li>✓ Meta & Google Ads Setup (Ad spend extra)</li>
+                        <li>✓ Bi-weekly Optimization Calls</li>
+                    </ul>
+                </div>
+                <div class="card-footer-btn">
+                    <a href="#" class="cta-btn active pricing-action-btn" data-plan="Pro Growth">Scale Now</a>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h3>Elite Brand</h3>
+                    <div class="price">$2,499<span>/mo</span></div>
+                    <p>Full-scale marketing department power for established companies.</p>
+                </div>
+                <div class="card-features">
+                    <ul type="none">
+                        <li>✓ Complete Identity & Brand Building</li>
+                        <li>✓ Unlimited Content & Design Creation</li>
+                        <li>✓ Full Funnel Strategy & Conversion Optimization</li>
+                        <li>✓ Comprehensive Competitor Analysis</li>
+                        <li>✓ Dedicated Account Manager 24/7</li>
+                        <li>✓ Premium Analytics & ROI Dashboard</li>
+                    </ul>
+                </div>
+                <div class="card-footer-btn">
+                    <a href="#" class="cta-btn pricing-action-btn" data-plan="Elite Brand">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sekcija sa tabelom za poređenje planova -->
+        <div class="comparison-section fade-in-element">
+            <h2>Compare <span>Our Plans</span> In Detail</h2>
+            
+            <div class="table-responsive">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th>Starter</th>
+                            <th>Pro Growth</th>
+                            <th>Elite Brand</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monthly Price</td>
+                            <td>$499</td>
+                            <td class="highlight-text">$1,199</td>
+                            <td>$2,499</td>
+                        </tr>
+                        <tr>
+                            <td>Social Media Management</td>
+                            <td>2 Platforms</td>
+                            <td>4 Platforms</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Graphic Designs</td>
+                            <td>8 /mo</td>
+                            <td>15 /mo</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Advanced Analytics</td>
+                            <td class="status-no">✗</td>
+                            <td class="status-yes">✓</td>
+                            <td class="status-yes">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Dedicated Account Manager</td>
+                            <td class="status-no">✗</td>
+                            <td class="status-no">✗</td>
+                            <td class="status-yes">✓ Support 24/7</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="pricing-form-section" class="fade-in-element">
+            <h2> Ready to Grow? <span>Let's Talk.</span></h2>
+            <form id="order-form">
+                <div class="form-group">
+                    <label for="user-name">Full Name</label>
+                    <input type="text" id="user-name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="user-email">Email Address</label>
+                    <input type="email" id="user-email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="selected-plan">Selected Plan</label>
+                    <select id="selected-plan">
+                        <option value="none">-- Please choose a plan --</option>
+                        <option value="Starter">Starter Plan - $499/mo</option>
+                        <option value="Pro Growth">Pro Growth Plan - $1,199/mo</option>
+                        <option value="Elite Brand">Elite Brand Plan - $2,499/mo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="user-message">Additional Requirements / Notes</label>
+                    <textarea id="user-message" rows="5" placeholder="Tell us more about your business goals..."></textarea>
+                </div>
+                <button type="submit" id="submit-form-btn">Submit Request</button>
+            </form>
+        </div>
+    </main>
+
+    <footer id="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Aura Marketing</h3>
+                <p>We build unique brand identities and fuel data-driven business growth.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul type="none">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services & Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@auramarketing.com</p>
+                <p>Phone: +381 11 123 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aura Marketing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

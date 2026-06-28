@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your cart - Aura Marketing</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cart-wrapper {
+            width: 80%;
+            margin: 50px auto 100px auto;
+            background-color: var(--sekundarna);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .cart-title {
+            color: var(--tekstbela);
+            font-family: var(--naslovi);
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--akcentna);
+            padding-bottom: 10px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        }
+        .item-info h3 {
+            color: var(--tekstbela);
+            font-family: var(--naslovi);
+        }
+        .item-price {
+            color: var(--akcentna);
+            font-family: var(--naslovi);
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .remove-btn {
+            background-color: #ef4444;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-family: var(--naslovi);
+            font-weight: bold;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+        }
+        .remove-btn:hover { opacity: 0.8; }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            font-size: 1.5rem;
+            color: var(--tekstbela);
+            font-family: var(--naslovi);
+            font-weight: bold;
+        }
+        .cart-total span { color: var(--akcentna); }
+        .empty-message {
+            color: var(--tekstsiva);
+            font-family: var(--tekst);
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 40px 0;
+        }
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            background-color: var(--akcentna);
+            color: var(--primarna);
+            border: none;
+            padding: 16px;
+            font-family: var(--naslovi);
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 30px;
+            border-radius: 4px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .checkout-btn:hover { background-color: #7dd3fc; }
+    </style>
+</head>
+<body>
+
+    <div id="nav-bar">
+        <header>
+            <img src="slike/logo.png" alt="Aura marketing logo" id="logo">
+        </header>
+        <nav>
+            <ul id="nav-list" type="none">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services & Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" id="cart-nav-link">🛒 Cart (<span id="cart-counter">0</span>)</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <div class="cart-wrapper">
+            <h2 class="cart-title">Your Cart</h2>
+            <div id="cart-items-container">
+                </div>
+            <div class="cart-total">
+                Total: <span id="total-price">$0</span>
+            </div>
+            <button id="checkout-action-btn" class="checkout-btn">Complete Order</button>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const kontejner = document.getElementById('cart-items-container');
+            const totalElement = document.getElementById('total-price');
+            const brojacElemenat = document.getElementById('cart-counter');
+
+            function renderujKorpu() {
+                const korpa = JSON.parse(localStorage.getItem('auraKorpa')) || [];
+                brojacElemenat.textContent = korpa.length;
+                
+                if (korpa.length === 0) {
+                    kontejner.innerHTML = '<p class="empty-message">Your cart is currently empty. Go to services to choose a plan.</p>';
+                    totalElement.textContent = "$0";
+                    return;
+                }
+
+                kontejner.innerHTML = '';
+                let ukupno = 0;
+
+                korpa.forEach(item => {
+                    const numerickaCena = parseInt(item.cena.replace(/[^0-9]/g, ''));
+                    ukupno += numerickaCena;
+
+                    kontejner.innerHTML += `
+                        <div class="cart-item">
+                            <div class="item-info">
+                                <h3>${item.naziv} Plan</h3>
+                                <div class="item-price">${item.cena}</div>
+                            </div>
+                            <button class="remove-btn" onclick="obrisiIzKorpe(${item.id})">Remove</button>
+                        </div>
+                    `;
+                });
+
+                totalElement.textContent = "$" + ukupno.toLocaleString();
+            }
+
+            window.obrisiIzKorpe = function(id) {
+                let korpa = JSON.parse(localStorage.getItem('auraKorpa')) || [];
+                korpa = korpa.filter(item => item.id !== id);
+                localStorage.setItem('auraKorpa', JSON.stringify(korpa));
+                renderujKorpu();
+            };
+
+            document.getElementById('checkout-action-btn').addEventListener('click', () => {
+                const korpa = JSON.parse(localStorage.getItem('auraKorpa')) || [];
+                if(korpa.length === 0) {
+                    alert("You have no plans in your cart.");
+                    return;
+                }
+                alert("Thank you for your order! Our team will contact you for payment details and contracts.");
+                localStorage.removeItem('auraKorpa');
+                renderujKorpu();
+            });
+
+            renderujKorpu();
+        });
+    </script>
+</body>
+</html>
